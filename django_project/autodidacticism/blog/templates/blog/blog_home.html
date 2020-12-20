@@ -1,0 +1,33 @@
+{% extends 'core_layout.html' %}
+{% load static %}
+
+{% block title %}Autodidacticism{% endblock title %}
+
+{% block head  %}
+	<link rel="stylesheet" type="text/css" href="{% static 'blog/css/homepage_layout.css' %}">
+{% endblock head %}
+
+{% block body %}
+<dir class="articles_intro">
+	<h1>Autodidacticism Articles</h1>	
+
+	<p>Autodidacticism is a very basic site where I can upload articles and papers that I write about topics that I find relevant and interesting. I also uses the site to upload and store white papers and research papers I find relevant to said topics as pdfs. All of the articles on
+	the site are authored by myself. I may add an about me page if it becomes necessary (this site is mainly for my personal use). All of the articles can be found from the <a href="{% url 'blog_homepage' %}">current page</a> and all pdfs, mine or otherwise, can be found on the <a href="{% url 'blog_homepage' %}">Articles tab</a>. Add link to specific article about the site.</p>
+
+	<h2>Article Topics</h2>
+	<p>Articles are mainly sorted based on topic. The links below return articles only for their specific topic. Individual articles can be searched for via the search bar:</p>
+
+	<div class="topic_lst">
+		<a href="#">FinTech & Investing</a>
+		<a href="#">Machine Learning</a>
+		<a href="#">Computational Biology</a>
+	</div>
+
+	<div class="search_input_div">
+		<input type="text" name="Search for Article">
+		
+	</div>
+</dir>
+
+
+{% endblock body %}

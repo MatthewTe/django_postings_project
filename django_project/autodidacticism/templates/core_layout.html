@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang='en' dir="ltr">
+<head>
+
+	<title>{% block title %}{% endblock title %}</title>
+	
+	<link rel="stylesheet" type="text/css" href="{% static 'css/core_styling.css' %}">
+	{% block head %}{% endblock head %}
+
+</head>
+
+<body>
+	
+	{# Creating the Navbar for the entire site #}
+	<div class="topnav">
+		<a href="{% url 'blog_homepage' %}">Articles</a>
+		<a href="#">Papers</a>
+	</div>
+
+	{% block body %}{% endblock body %}
+	{% block javascript %}{% endblock javascript %}
+</body>
+
+</html>
