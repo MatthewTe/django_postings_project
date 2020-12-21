@@ -1,1 +1,82 @@
-	
+/* Styling the div tag that contains all of the blog html elements */
+.blog_homepage {
+	margin-right: 50px;
+	margin-left: 50px;
+	line-height: 1.5;	
+}
+
+/* Styling article intro paragraph tags: */
+.intro_paragraph {
+	text-align: justify;
+}
+
+/* Formatting the list of blog topics */
+.topic_lst {
+	line-height: 1.5;	
+
+}
+
+.topic_lst a {
+	float: center;
+	font-size: 17px;
+}
+
+/* Formatting the Article Search bar */
+.article_search_form {
+	margin-top: 30px;
+	margin-right: 23px;
+}
+
+.article_search_form input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 100%;
+  background: #f1f1f1;
+
+}
+
+/* Formatting the Body Div containing the article thumbnails */
+.article_main_body {
+	margin-top: 100px;
+}
+
+.article_thumbnail, .article_thumbnail:visited {
+	/* color: inherit; TODO Determine if better way to format this. */
+	display: block;
+	text-decoration: none;
+	border-style: solid;
+	margin-bottom: 10px;
+}
+
+/* Removing link highlighting of entire div: */
+
+
+/* Format of the thumbnail description */
+.article_thumbnail p {
+	text-align: left;
+	margin-left: 15px; 
+}
+
+/* Title and Date Uploaded div tag formatting */
+#block_container {
+	margin-top: 10px;
+ }	
+
+#title_block {
+	display: inline;
+	text-align: left;
+
+}
+
+#date_block {
+	display: inline;
+	float: right;
+	margin-right: 15px;
+	font-size: 13px;
+	color: grey;
+}
+
+
+

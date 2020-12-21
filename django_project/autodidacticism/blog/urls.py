@@ -4,7 +4,10 @@ from . import views
 
 urlpatterns = [
 	
-	# Home/Index page path:	
-	path('', views.blog_homepage, name='blog_homepage')
+	# Articles Home/Index page path:	
+	path('', views.blog_homepage, name='blog_homepage'),
+
+	# Papers & PDF Home/Index page path:
+	path('papers', views.papers_homepage, name='papers_homepage')
 
 ]
