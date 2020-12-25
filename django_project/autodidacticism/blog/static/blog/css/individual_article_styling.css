@@ -1,0 +1,27 @@
+/* Styling article contents generated from Markdown */
+
+#article_post {
+	text-align: justify;
+	margin-right: 80px;
+	margin-left: 50px;
+
+}
+
+#article_post h1 {
+	text-align: center;
+	font-size: 40px;
+	text-decoration: underline;
+
+}
+
+#article_post ul {
+	list-style-type: square; 
+}
+
+#article_post p {
+	line-height: 1.6;
+}
+
+#article_post a:visited, a:link, a:active {
+	color: black
+}

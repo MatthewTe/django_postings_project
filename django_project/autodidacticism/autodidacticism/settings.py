@@ -26,8 +26,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # <---Internal Django Apps--->
+    
     # Primary Blog App:
-    'blog'
+    'blog',
+
+    # <---External Django Apps--->
+
+    # Frontend Markdown Rendering:
+    'markdownify'
 ]
 
 MIDDLEWARE = [
@@ -110,5 +118,18 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "assets")
+
 # Adding the global static directory to the app:
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+
+# Direct Routes for Static Media Files:
+MEDIA_ROOT = os.path.join(BASE_DIR, "content_files")
+MEDIA_URL = '/content_files/'
+
+# Configuring the Markdownify methods:
+MARKDOWNIFY_STRIP = False
+MARKDOWNIFY_WHITELIST_TAGS = {
+    'a', 'p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'
+    'h7', 'ul', 'li', 'span', 'div', 'b', 'strong',
+    'code'
+    }

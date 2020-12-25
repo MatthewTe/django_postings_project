@@ -4,12 +4,12 @@ from django.urls import path, include
 
 
 urlpatterns = [
-   
-
-    path('admin/', admin.site.urls),
-   
+      
 # Website Url Routes:
 # -------------------
-	# Route to the main blog:
+    # Default Admin Implementation:
+    path('admin/', admin.site.urls),
+
+	# Route to the main blog:	
     path('', include('blog.urls'))
 ]

@@ -21,9 +21,24 @@
 	color: black;
 }
 
+footer {
+	background-color: #333;
+	overflow: hidden;
+}
+
+footer a {
+	float: left;
+	color: #f2f2f2;
+	text-align: center;
+	padding: 15px 16px;
+	text-decoration: none;
+	font-family: Arial;
+	font-size: 17px;
+}
+
+
 /* All Body Styling */
 body {
-	
 	font-family: Arial;
 	text-align: center;
 	/* Removing default margin for body*/
