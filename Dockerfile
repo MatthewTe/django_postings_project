@@ -24,5 +24,5 @@ WORKDIR django_project/autodidacticism
 ENV DJANGO_SETTINGS_MODULE=autodidacticism.prod_settings
 
 # Running the django server:
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["python", "manage.py", "runserver"]
 
