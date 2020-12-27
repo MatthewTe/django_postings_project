@@ -20,6 +20,9 @@ RUN pip install -r requirements.txt
 # Setting the Working Directory to the root of the django project:
 WORKDIR django_project/autodidacticism
 
+# Setting Environment variables to Configure Django project:
+ENV DJANGO_SETTINGS_MODULE=autodidacticism.dev_settings
+
 # Running the django server:
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
 
