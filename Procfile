@@ -1,1 +1,0 @@
-web: gunicorn django_project.autodidacticism.autodidacticism.wsgi --log-file -
