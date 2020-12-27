@@ -23,8 +23,9 @@ WORKDIR django_project/autodidacticism
 # Setting Environment variables to Configure Django project:
 ENV DJANGO_SETTINGS_MODULE=autodidacticism.prod_settings
 
-# Extracting PORT variable from Heroku environment:
-
+# Performing the django project configuration:
+CMD ["python" "manage.py", "makemigrations"]
+CMD ["python", "manage.py", "migrate"]
 
 # Running the django server:
 CMD ["gunicorn", "autodidacticism.wsgi"]
