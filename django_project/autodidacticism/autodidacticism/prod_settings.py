@@ -13,7 +13,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'w)0kz6!a_sur&w5+_2%pgg&6=2-v0pyc+)j%+8i-!*i_85_^1r'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
 
@@ -146,4 +146,4 @@ MARKDOWNIFY_WHITELIST_TAGS = {
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Activate Django-Heroku.
-django_heroku.settings(locals())
+django_heroku.settings(config=locals(), staticfiles=False, logging=False)
