@@ -1,3 +1,4 @@
+import django_heroku
 from pathlib import Path
 import os
 
@@ -134,3 +135,6 @@ MARKDOWNIFY_WHITELIST_TAGS = {
     'h7', 'ul', 'li', 'span', 'div', 'b', 'strong',
     'code'
     }
+
+# Activate Django-Heroku.
+django_heroku.settings(locals())
