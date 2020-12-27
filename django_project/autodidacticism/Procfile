@@ -1,1 +1,0 @@
-web: gunicorn autodidacticism.autodidacticism.wsgi --log-file -
