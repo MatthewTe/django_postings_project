@@ -1,4 +1,7 @@
+setup:
+  config:
+    DISABLE_COLLECTSTATIC: 1
+
 build:
   docker:
     web: Dockerfile
-    
