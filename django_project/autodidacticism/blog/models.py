@@ -158,6 +158,8 @@ class PaperModel(models.Model):
 
 	* The actual paper stored as a pdf file.
 
+	* A slug representing the pdf paper based on the title.
+
 	These fields are represented in the Model by the following fields:
 
 	Attributes:
@@ -182,6 +184,11 @@ class PaperModel(models.Model):
 
 		paper (models.FileField): The pdf of the actual paper. This is the object
 			that represents the pdf file. It allows the upload of a pdf file.
+
+		paper_slug (models.SlugField): A slug string that is created by an internal
+			method that is called every time a new model instance is created. It is
+			used to uniquely identify each paper for the purposes of dynamic rendering
+			and url routing.
 
 	"""
 	# Declaring model parameters:
@@ -218,6 +225,10 @@ class PaperModel(models.Model):
 		upload_to='papers/',
 		verbose_name='Paper PDF')
 
+	paper_slug = models.SlugField(
+		max_length=200,
+		unique=True,
+		blank=True)
 
 	# Nested class describing the metadata for the model:
 	class Meta:
@@ -226,6 +237,33 @@ class PaperModel(models.Model):
 		ordering = ['-upload_date']
 
 		verbose_name_plural="Papers"
+
+	def save(self, *args, **kwargs):
+		"""Overwrites the default models.Model save method in order
+		to generate a slug value upon creation.
+
+		The method is called when a Model instance is created. It 
+		converts the paper_title field for said instance and 
+		'slugifys' it. This slugify-ed parameter is the param saved
+		in the paper_slug field.
+
+		The process for saving a model instance is as follows:
+
+		Instance is created --> This save method is called -->
+		save method creates slug value and assigns it to parameter 
+		paper_slug --> save method for models.Model is called w/ *args and 
+		**kwargs --> instance is save to db with default save implementation.
+
+        Args:
+            *args (*args): Boilerplate arguments for the default 'save' method.
+            
+            **kwargs (*kwargs): Boilerplate kew-word arguments for the default
+		"""
+		# Converting article title into slug and assigning value to article_slug:
+		self.paper_slug = slugify(self.paper_title) 
+
+		# Saving the model instance:
+		super(PaperModel, self).save(*args, **kwargs)   
 
 	# Method for representing the object:
 	def __str__(self):

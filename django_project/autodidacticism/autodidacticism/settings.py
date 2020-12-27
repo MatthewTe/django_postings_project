@@ -20,6 +20,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -123,8 +124,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, "assets")
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
 # Direct Routes for Static Media Files:
-MEDIA_ROOT = os.path.join(BASE_DIR, "content_files")
 MEDIA_URL = '/content_files/'
+MEDIA_ROOT = os.path.join(BASE_DIR, "content_files")
 
 # Configuring the Markdownify methods:
 MARKDOWNIFY_STRIP = False

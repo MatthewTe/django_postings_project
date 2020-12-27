@@ -1,4 +1,9 @@
+# Importing 3rd party package:
+import os
+
 from django.shortcuts import render
+from django.http import FileResponse, HttpResponse, HttpResponseNotFound
+from django.core.files.storage import FileSystemStorage
 
 # Importing blog database models:
 from .models import ArticleModel, PaperModel
@@ -124,7 +129,7 @@ def papers_homepage(request, category=None):
 
 	return render(request, 'blog/papers_home.html', context=context)
 
-def paper_download(request, pdf_path):
+def paper_download(request, pdf_slug):
 	"""The method that serves the pdf indicated by the path to the user.
 
 	TODO: Add logic to serve a paper indicated by the path of the FileField
@@ -138,13 +143,33 @@ def paper_download(request, pdf_path):
 			the specific Article model instance.
 
     Returns:
-        django.shortcuts.render: The django template rendered as html with full
-            context.	
+        django.http.HttpResponse: The Http response code that contains the pdf
+        	file for viewing in the browser.
+
+		django.http.HttpResponseNotFound: The response code indicating that
+			the pdf file with associated the url slug cannot be found. 		
+
 
 	"""
-	return render(request, 'blog/individual_article.html')
+	# Querying the database for the Paper indicated by the url slug param:
+	paper = PaperModel.objects.get(paper_slug__exact=pdf_slug)
+	pdf_file_path = paper.paper.path
 
+	# Creating File Storage Objects: 
+	fs = FileSystemStorage()
 
+	if fs.exists(pdf_file_path):
 
+		# Opening the pdf file:
+		with fs.open(pdf_file_path) as pdf:
 
+			# Creating the Http Response:
+			response = HttpResponse(pdf, content_type='application/pdf')
+			response['Content-Disposition'] = f'inline; filename="{pdf_slug}.pdf"'
 
+			return response
+	
+	else:
+		return HttpResponseNotFound('This PDF does not exist')
+
+	
