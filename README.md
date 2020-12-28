@@ -22,11 +22,6 @@ heroku config: set SECRET_KEY="xxxxxxxxxxxx"
 SECRET_KEY for os.getenv('SECRET_KEY')
 ```
 
-
-External Config of Possible Conflict Params:
-```
-```
-
 Configure database (postgres):
 ```
 Update DATABASE dev_settings.py params:
