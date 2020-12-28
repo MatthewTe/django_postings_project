@@ -43,6 +43,11 @@ heroku run python manage.py
 heroku run python manage.py makemigrations     
 ```
 
+Pushing Changes to Heroku:
+```
+git push heroku main
+```
+
 This should be the laundry list of relevant processes should I need to re-configure the app in heroku. Relevant links that I used for config:
 
 * https://realpython.com/migrating-your-django-project-to-heroku/#convert-from-mysql-to-postgres
