@@ -1,5 +1,5 @@
 # Django Projects Documentation Site 
-A Django project that allows me to make blog posts as well as upload pfds/reports about other projects.
+A [Django project](https://autodidacticism.herokuapp.com/) that allows me to make blog posts as well as upload pfds/reports about other projects.
 
 ## App Hosted in Heroku:
 After configuring the Heroku deployment I do not want to have to re-learn how to deploy so I am writing a list of the current process:
