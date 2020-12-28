@@ -130,6 +130,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "content_files")
 
 # Configuring the Markdownify methods:
 MARKDOWNIFY_STRIP = False
+MARKDOWNIFY_MARKDOWN_EXTENSIONS = ['markdown.extensions.fenced_code']
 MARKDOWNIFY_WHITELIST_TAGS = {
     'a', 'p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'
     'h7', 'ul', 'li', 'span', 'div', 'b', 'strong',
