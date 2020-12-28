@@ -6,35 +6,36 @@ After configuring the Heroku deployment I do not want to have to re-learn how to
 
 
 1) Compile Application Through Docker:
-- 	Build django env from Dockerfile 
-- 	Creating Heroku Container for the Docker App: `heroku stack:set container`
-- 	Build Docker Image from heroku.yml file that points to Dockerfile
-
+```
+Build django env from Dockerfile 
+Creating Heroku Container for the Docker App: `heroku stack:set container`
+Build Docker Image from heroku.yml file that points to Dockerfile
+```
 
 2) External Config of Possible Conflict Params:
 ```
-	heroku config:set DISABLE_COLLECTSTATIC=1
+heroku config:set DISABLE_COLLECTSTATIC=1
 ```
 
 3) Configure database (postgres):
 ```
-	Update DATABASE dev_settings.py params:
+Update DATABASE dev_settings.py params:
 
-		import dj_database_url --> dj_database_url.config(conn_max_age=500, 			ssl_require=True)
+import dj_database_url --> dj_database_url.config(conn_max_age=500, ssl_require=True)
 
-		DATABASES = {
-    	'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    	}
+DATABASES = {
+	'default': {
+    'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    'NAME': BASE_DIR / 'db.sqlite3',
+	}
 
-    	DATABASES['default'].update(prod_db)
+DATABASES['default'].update(prod_db)
 ```
 
-4) Perform Database migrations:
+Perform Database migrations:
 ```
-	heroku run python manage.py               
-	heroku run python manage.py makemigrations     
+heroku run python manage.py               
+heroku run python manage.py makemigrations     
 ```
 
 This should be the laundry list of relevant processes should I need to re-configure the app in heroku. Relevant links that I used for config:
