@@ -16,10 +16,8 @@ SECRET_KEY = 'w)0kz6!a_sur&w5+_2%pgg&6=2-v0pyc+)j%+8i-!*i_85_^1r'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-
     # heroku Host:
     ".herokuapp.com"
-
 ]
 
 
@@ -145,7 +143,7 @@ MARKDOWNIFY_WHITELIST_TAGS = {
 # WhiteNoise Configuation:
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# Configuring postgres database:
+# Configuring postgres database for heroku:
 import dj_database_url
 prod_db  =  dj_database_url.config(conn_max_age=500, ssl_require=True)
 DATABASES['default'].update(prod_db)

@@ -21,11 +21,7 @@ RUN pip install -r requirements.txt
 WORKDIR django_project/autodidacticism
 
 # Setting Environment variables to Configure Django project:
-ENV DJANGO_SETTINGS_MODULE=autodidacticism.prod_settings
-
-# Performing the django project configuration:
-CMD ["python" "manage.py", "makemigrations"]
-CMD ["python", "manage.py", "migrate"]
+ENV DJANGO_SETTINGS_MODULE=autodidacticism.heroku_prod_settings
 
 # Running the django server:
 CMD ["gunicorn", "autodidacticism.wsgi"]
