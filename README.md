@@ -5,19 +5,29 @@ A Django project that allows me to make blog posts as well as upload pfds/report
 After configuring the Heroku deployment I do not want to have to re-learn how to deploy so I am writing a list of the current process:
 
 
-1) Compile Application Through Docker:
+Compile Application Through Docker:
 ```
 Build django env from Dockerfile 
 Creating Heroku Container for the Docker App: `heroku stack:set container`
 Build Docker Image from heroku.yml file that points to Dockerfile
 ```
 
-2) External Config of Possible Conflict Params:
+Configure Necessary Environment Variables:
 ```
+DJANGO_SETTINGS_MODULE=autodidacticism.heroku_prod_settings
+DATABASE_URL
 heroku config:set DISABLE_COLLECTSTATIC=1
+
+heroku config: set SECRET_KEY="xxxxxxxxxxxx"
+SECRET_KEY for os.getenv('SECRET_KEY')
 ```
 
-3) Configure database (postgres):
+
+External Config of Possible Conflict Params:
+```
+```
+
+Configure database (postgres):
 ```
 Update DATABASE dev_settings.py params:
 
