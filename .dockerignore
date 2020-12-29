@@ -3,7 +3,6 @@
 .cache
 
 # development specific files:
-content_files/
 db.sqlite3
 db.sqlite3-journal
 
