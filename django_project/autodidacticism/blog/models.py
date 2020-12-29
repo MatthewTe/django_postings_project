@@ -78,7 +78,8 @@ class ArticleModel(models.Model):
 			('FinTech & Investing','fintech_investing'),
 			('Machine Learning','machine_learning'),
 			('Computational Biology','computational_biology'),
-			('Data Engineering','data_engineering'))
+			('Data Engineering','data_engineering'),
+			('Web Development', 'web_development'))
 		)
 
 	# Nested class describing the metadata for the model:
@@ -218,7 +219,8 @@ class PaperModel(models.Model):
 			('FinTech & Investing','fintech_investing'),
 			('Machine Learning','machine_learning'),
 			('Computational Biology','computational_biology'),
-			('Data Engineering','data_engineering'))
+			('Data Engineering','data_engineering'),
+			('Web Development', 'web_development'))
 		)
 
 	paper = models.FileField(
