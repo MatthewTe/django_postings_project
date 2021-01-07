@@ -50,13 +50,13 @@ class ArticleModel(models.Model):
 	"""
 	# Defining main Article model fields:
 	article_title = models.CharField(
-		max_length=50,
+		max_length=250,
 		verbose_name="Article Titile")
 
 	upload_date = models.DateTimeField(auto_now=True)
 
 	article_description = models.CharField(
-		max_length=200,
+		max_length=500,
 		verbose_name="Article Description")
 
 	# Upload to the MEDIA_ROOT/articles folder:
@@ -66,7 +66,7 @@ class ArticleModel(models.Model):
 
 	# Parameter is auto-generated upon model instance creation:
 	article_slug = models.SlugField(
-		max_length=200,
+		max_length=250,
 		unique=True,
 		blank=True)
 
@@ -194,7 +194,7 @@ class PaperModel(models.Model):
 	"""
 	# Declaring model parameters:
 	paper_title = models.CharField(
-		max_length=50,
+		max_length=200,
 		verbose_name = "Paper Title")
 
 	upload_date = models.DateTimeField(auto_now=True)
@@ -204,12 +204,12 @@ class PaperModel(models.Model):
 		blank=True)
 
 	authors = models.CharField(
-		max_length=100,
+		max_length=400,
 		verbose_name="Authors",
 		null=True)
 
 	paper_description = models.CharField(
-		max_length=200,
+		max_length=500,
 		verbose_name="Report Description")
 
 	paper_category = models.CharField(

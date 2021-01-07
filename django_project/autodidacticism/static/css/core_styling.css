@@ -1,7 +1,7 @@
 /* Top Navigation Bar Styling */
 .topnav {
-	background-color: #333;
-	overflow: hidden;
+	background-color: #333 !important;
+	overflow: hidden !important;
 }
 
 /* Styling internal navbar link  <a tag> */

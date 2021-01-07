@@ -79,9 +79,18 @@ def blog_post(request, slug):
 	# Querying the database for article w/ specific slug:
 	article = ArticleModel.objects.get(article_slug__exact=slug)
 
+	# Added Functionality: HTML and MD files can be rendered:
+	# Determining if file is a markdown file or html file:
+	if article.articel_content.name.endswith('.md'):
+		filetype = 'markdown'
+
+	elif article.articel_content.name.endswith('html'):
+		filetype = 'html'
+
 	# Populating Context:
 	context['article'] = article
 	context['slug'] = slug
+	context['filetype'] = filetype
 
 	return render(request, 'blog/individual_article.html', context=context)
 
