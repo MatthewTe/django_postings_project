@@ -269,4 +269,6 @@ class PaperModel(models.Model):
 
 	# Method for representing the object:
 	def __str__(self):
-		return self.paper_title
+		return self.paper_title 
+
+		
