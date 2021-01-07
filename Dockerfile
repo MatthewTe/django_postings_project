@@ -23,6 +23,10 @@ WORKDIR django_project/autodidacticism
 # Setting Environment variables to Configure Django project:
 ENV DJANGO_SETTINGS_MODULE=autodidacticism.heroku_prod_settings
 
+# Performing database migrations at every rebuild:
+CMD ['python', 'manage.py', 'makemigrations']
+CMD ['python', 'manage.py', 'migrate']
+
 # Running the django server:
 CMD ["gunicorn", "autodidacticism.wsgi"]
 
